@@ -26,7 +26,7 @@ Add to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/anthropic-kai/NumberFlowSwift.git", from: "0.1.0")
+    .package(url: "https://github.com/purplecofe/NumberFlowSwift.git", from: "0.1.0")
 ]
 ```
 

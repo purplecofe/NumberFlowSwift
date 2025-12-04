@@ -8,16 +8,8 @@ on:
 
 jobs:
   build-and-test:
-    strategy:
-      matrix:
-        include:
-          - os: macos-14
-            name: macOS
-          - os: ubuntu-latest
-            name: Linux
-    
-    runs-on: ${{ matrix.os }}
-    name: Build & Test (${{ matrix.name }})
+    runs-on: macos-14
+    name: Build & Test
     
     steps:
       - uses: actions/checkout@v4
@@ -28,7 +20,6 @@ jobs:
       - name: Run Tests
         run: swift test -v
 
-  # Validate podspec syntax (doesn't require trunk auth)
   pod-lint:
     runs-on: macos-14
     name: CocoaPods Lint

@@ -125,7 +125,7 @@ NumberFlowSwift automatically respects the **Reduce Motion** accessibility setti
 
 ## Requirements
 
-- iOS 17.0+ / macOS 14.0+ / watchOS 10.0+ / tvOS 17.0+ / visionOS 1.0+
+- iOS 17.0+ / macOS 14.0+
 - Swift 5.9+
 - Xcode 15.0+
 

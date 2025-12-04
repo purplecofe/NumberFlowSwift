@@ -305,7 +305,6 @@ private final class DigitContainer: UIView {
     func setDigit(_ digit: Int, animated: Bool, duration: TimeInterval = 0.5, damping: CGFloat = 0.8) {
         guard digit != currentDigit else { return }
         
-        let oldDigit = currentDigit
         currentDigit = digit
         
         if animated {

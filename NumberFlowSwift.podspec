@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   - Support for any NumberFormatter (currency, decimal, percent, etc.)
   - SwiftUI: NumberFlowText view with reduce motion support
   - UIKit: NumberFlowLabel with spring animations
-  - Works on iOS, macOS, watchOS, tvOS, and visionOS
+  - Works on iOS and macOS
                        DESC
 
   s.homepage         = 'https://github.com/purplecofe/NumberFlowSwift'
@@ -23,9 +23,6 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '17.0'
   s.osx.deployment_target = '14.0'
-  s.watchos.deployment_target = '10.0'
-  s.tvos.deployment_target = '17.0'
-  s.visionos.deployment_target = '1.0'
   
   s.swift_version = '5.9'
   s.source_files = 'Sources/NumberFlowSwift/**/*'
@@ -33,11 +30,7 @@ Pod::Spec.new do |s|
   # SwiftUI is required for all platforms
   s.frameworks = 'SwiftUI'
   
-  # UIKit is required on iOS/tvOS for NumberFlowLabel
+  # UIKit is required on iOS for NumberFlowLabel
   s.ios.frameworks = 'SwiftUI', 'UIKit'
-  s.tvos.frameworks = 'SwiftUI', 'UIKit'
-  
-  # AppKit for macOS (if needed in future)
-  # s.osx.frameworks = 'SwiftUI', 'AppKit'
 end
 

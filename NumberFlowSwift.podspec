@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'NumberFlowSwift'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Animated number transitions for SwiftUI and UIKit - slot machine style spinning digits'
 
   s.description      = <<-DESC

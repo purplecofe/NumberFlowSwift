@@ -34,7 +34,7 @@ public struct NumberFlowText: View {
     
     // Animation configuration
     private let digitHeight: CGFloat = 1.2
-    private let animation: Animation = .spring(response: 0.5, dampingFraction: 0.8)
+    private let animation: Animation = .spring(response: 0.8, dampingFraction: 0.8)
     
     /// Creates an animated number display.
     /// - Parameters:
@@ -145,7 +145,7 @@ private struct AnimatedDigit: View {
     let digitHeight: CGFloat
     let animation: Animation?
     
-    @State private var displayedDigit: Int = 0
+    @State private var displayedDigit: Int?
     
     var body: some View {
         Text("0")
@@ -160,10 +160,10 @@ private struct AnimatedDigit: View {
                             Text("\(num)")
                                 .font(font)
                                 .foregroundStyle(textColor)
-                                .frame(height: height)
+                                .frame(height: height, alignment: .center)
                         }
                     }
-                    .offset(y: -CGFloat(displayedDigit) * height)
+                    .offset(y: -CGFloat(displayedDigit ?? 0) * height - (height - geo.size.height) / 2)
                 }
             }
             .clipped()
@@ -177,7 +177,15 @@ private struct AnimatedDigit: View {
                 }
             }
             .onAppear {
-                displayedDigit = digit
+                if let animation {
+                    DispatchQueue.main.async {
+                        withAnimation(animation) {
+                            displayedDigit = digit
+                        }
+                    }
+                } else {
+                    displayedDigit = digit
+                }
             }
     }
 }
@@ -187,7 +195,7 @@ private struct AnimatedDigit: View {
 #if DEBUG
 #Preview("NumberFlowText Demo") {
     struct PreviewWrapper: View {
-        @State private var value: Double = 12345
+        @State private var value: Double = 0
         
         private var currencyFormatter: NumberFormatter {
             let f = NumberFormatter()
@@ -218,8 +226,8 @@ private struct AnimatedDigit: View {
                 )
                 
                 HStack(spacing: 16) {
-                    Button("-1000") { value -= 1000 }
-                    Button("+1000") { value += 1000 }
+                    Button("-1000") { value -= 1234 }
+                    Button("+1000") { value += 1234 }
                 }
                 .buttonStyle(.borderedProminent)
                 
